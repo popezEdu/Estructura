@@ -92,6 +92,17 @@ class Program
         // }
 
         // Examen
+
+        try
+        {
+            ArrayUnsafeHeap arryconError = new ArrayUnsafeHeap(-7);
+        }
+        catch (ArgumentException ex)
+        {
+            Console.WriteLine(ex.Message);
+
+        }
+
         ArrayUnsafeHeap array = new ArrayUnsafeHeap(8);
         array.Agregar(32);
         array.Agregar(-92);

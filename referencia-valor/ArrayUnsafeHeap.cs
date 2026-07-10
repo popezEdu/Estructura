@@ -39,6 +39,13 @@ public unsafe class ArrayUnsafeHeap
     public int Tamaño => _tamaño;
     public bool SePuedeAgregar => (_indice < _tamaño);
 
+    private string _nombre;
+    public string Nombre
+    {
+        get { return _nombre; }
+        set { _nombre = value; }
+    }
+
     // Métodos
     public void Agregar(int valor)
     {
