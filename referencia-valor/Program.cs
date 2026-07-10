@@ -46,49 +46,79 @@ class Program
         // Parte 3 = Punteros
 
         // stack
-        unsafe
-        {
-            int tamaño = 6;
-            // Reservo el espacio de memoria
-            int* ptrArray = stackalloc int[tamaño];
-            int* referencia = null;
-            referencia = ptrArray;
+        // unsafe
+        // {
+        //     int tamaño = 6;
+        //     // Reservo el espacio de memoria
+        //     int* ptrArray = stackalloc int[tamaño];
+        //     int* referencia = null;
+        //     referencia = ptrArray;
 
-            // Asigno valores
-            for (int i = 0; i < tamaño; i++)
-            {
-                *(ptrArray + i) = (i + 1) * 10;
-            }
+        //     // Asigno valores
+        //     for (int i = 0; i < tamaño; i++)
+        //     {
+        //         *(ptrArray + i) = (i + 1) * 10;
+        //     }
 
-            // Mostrar Valores
-            for (int i = 0; i < tamaño; i++)
-            {
-                Console.WriteLine($"Elemento {i} tiene el valor {*(referencia + i)}");
-            }
-        }
+        //     // Mostrar Valores
+        //     for (int i = 0; i < tamaño; i++)
+        //     {
+        //         Console.WriteLine($"Elemento {i} tiene el valor {*(referencia + i)}");
+        //     }
+        // }
 
-        // Heap
-        unsafe
-        {
-            int tamaño = 6;
-            IntPtr memoria = Marshal.AllocHGlobal(tamaño * sizeof(int));
+        // // Heap
+        // unsafe
+        // {
+        //     int tamaño = 6;
+        //     IntPtr memoria = Marshal.AllocHGlobal(tamaño * sizeof(int));
 
-            int* ptrArray = (int*)memoria.ToPointer();
-            for (int i = 0; i < tamaño; i++)
-            {
-                ptrArray[i] = (i + 1) * 3;
-            }
+        //     int* ptrArray = (int*)memoria.ToPointer();
+        //     for (int i = 0; i < tamaño; i++)
+        //     {
+        //         ptrArray[i] = (i + 1) * 3;
+        //     }
 
-            // Mostramos los valores
-            for (int i = 0; i < tamaño; i++)
-            {
-                Console.WriteLine($"Elemento {i} tiene el valor {ptrArray[i]}");
+        //     // Mostramos los valores
+        //     for (int i = 0; i < tamaño; i++)
+        //     {
+        //         Console.WriteLine($"Elemento {i} tiene el valor {ptrArray[i]}");
 
-                int* ubicacion = ptrArray + i;
-                Console.WriteLine($"Ubicación de Memoria: 0x{(long)ubicacion:X}");
-            }
+        //         int* ubicacion = ptrArray + i;
+        //         Console.WriteLine($"Ubicación de Memoria: 0x{(long)ubicacion:X}");
+        //     }
 
-            Marshal.FreeHGlobal(memoria);
-        }
+        //     Marshal.FreeHGlobal(memoria);
+        // }
+
+        // Examen
+        ArrayUnsafeHeap array = new ArrayUnsafeHeap(8);
+        array.Agregar(32);
+        array.Agregar(-92);
+        array.Agregar(213);
+        Console.WriteLine(array.SePuedeAgregar);
+        Console.WriteLine(array.ToString());
+        array.Agregar(782);
+        array.Agregar(-892);
+        Console.WriteLine(array.SePuedeAgregar);
+        Console.WriteLine(array.ToString());
+        array.Agregar(23);
+        array.Agregar(9892);
+        array.Agregar(-312);
+        Console.WriteLine(array.SePuedeAgregar);
+        Console.WriteLine(array.ToString());
+        array.Eliminar();
+        array.Eliminar();
+        array.Eliminar();
+        array.Eliminar();
+        array.Eliminar();
+        Console.WriteLine(array.ToString());
+        Console.WriteLine(array.SePuedeAgregar);
+        array.Eliminar();
+        array.Eliminar();
+        Console.WriteLine(array.ToString());
+        array.Agregar(1414);
+        Console.WriteLine(array.ToString());
+        array.Destruir();
     }
 }
