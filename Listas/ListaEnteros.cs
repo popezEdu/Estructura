@@ -16,10 +16,12 @@ class ListaEnteros
 
         lista = new List<int>();
 
+
         Random random = new Random();
         for (int i = 0; i < cantidadDatosIniciales; i++)
         {
             lista.Add(random.Next(1, 100));
+
         }
     }
 
