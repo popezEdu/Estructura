@@ -48,6 +48,26 @@ class Program
         miLista.Agregar(50);
         Console.WriteLine(miLista.Cantidad.ToString());
         Console.WriteLine(miLista.Any.ToString());
+
+        List<string> nombres = new List<string>();
+        nombres.Add("Eduardo");
+        nombres.Add("Mateo");
+        nombres.Add("Luis");
+        nombres.Add("José");
+        nombres.Add("Carlos");
+        nombres.Add("Mario");
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
 
