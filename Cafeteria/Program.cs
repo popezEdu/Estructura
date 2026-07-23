@@ -31,7 +31,7 @@ class Program
         {
             Console.WriteLine(ventas.GenerarVenta("Expreso").ToString());
             Console.WriteLine(ventas.GenerarVenta("Café Oreo").ToString());
-            Console.WriteLine(ventas.GenerarVenta("Amargo").ToString());
+            Console.WriteLine(ventas.GenerarVenta("Descafeinado").ToString());
         }
         catch (Exception ex)
         {
