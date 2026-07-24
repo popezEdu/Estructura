@@ -6,6 +6,12 @@ public class Transaccion
     public decimal Monto { get; set; }
     public TipoTransaccion Movimiento { get; init;}
 
+    public override string ToString()
+    {
+        return $"Id: {Id.ToString()} - Cliente: {Nombre} - Monto: {Monto} - Fecha: {Fecha.ToShortDateString()}";
+    }
+
+
 }
 
 public enum TipoTransaccion
